@@ -13,13 +13,28 @@ public class DatabaseApp {
         Statement statement = connection.createStatement();
 
         ResultSet resultSet = statement.executeQuery("SELECT * FROM notes");
+//        int i = 0;
+//        while ((resultSet.next())){
+//            i++;
+//            System.out.println("Kursor aktualnie jest na " + i + " wierszu.");
+//        }
+
+        while ( (resultSet.next())){
+            int noteId = resultSet.getInt(1);
+            String noteTitle = resultSet.getString("note_title");
+            String noteMsg = resultSet.getString(3);
+            int userId = resultSet.getInt("user_id");
+
+            System.out.println("Id notatki: " +noteId+ ",tytuł: " + noteTitle+ ",treść:" +noteMsg+ ",id użytkownika: " +userId);
+        }
+
 
 //        boolean resultFlag = statement.execute("INSERT INTO users (user_id, user_nick, user_name) VALUES (100, 'kowal123', 'Jan');");
 //        if (!resultFlag){
 //            System.out.println("Ilość dodanych rekordów: + " + statement.getUpdateCount());
 //        }
 
-        int resultCount = statement.executeUpdate("CREATE TABLE tests (test_id integer, test_name character varying (256));");
+//        int resultCount = statement.executeUpdate("CREATE TABLE tests (test_id integer, test_name character varying (256));");
 
 
 
