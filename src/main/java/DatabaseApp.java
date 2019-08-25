@@ -14,10 +14,14 @@ public class DatabaseApp {
 
         ResultSet resultSet = statement.executeQuery("SELECT * FROM notes");
 
-        boolean resultFlag = statement.execute("INSERT INTO users (user_id, user_nick, user_name) VALUES (100, 'kowal123', 'Jan');");
-        if (!resultFlag){
-            System.out.println("Ilość dodanych rekordów: + " + statement.getUpdateCount());
-        }
+//        boolean resultFlag = statement.execute("INSERT INTO users (user_id, user_nick, user_name) VALUES (100, 'kowal123', 'Jan');");
+//        if (!resultFlag){
+//            System.out.println("Ilość dodanych rekordów: + " + statement.getUpdateCount());
+//        }
+
+        int resultCount = statement.executeUpdate("CREATE TABLE tests (test_id integer, test_name character varying (256));");
+
+
 
         statement.close();
         connection.close();
